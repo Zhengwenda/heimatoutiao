@@ -4,19 +4,19 @@
       <div class="title">
       <img src="../../assets/img/logo_index.png" alt="">
       </div>
-      <el-form :model="loginForm" >
-        <el-form-item>
-          <el-input class="mobile"></el-input>
+      <el-form :model="loginForm"  :rules="loginRules" ref="myForm">
+        <el-form-item prop="mobile">
+          <el-input class="mobile" v-model="loginForm.mobile"></el-input>
         </el-form-item>
-        <el-form-item>
-          <el-input class="code"></el-input>
+        <el-form-item prop="code">
+          <el-input class="code" v-model="loginForm.code"></el-input>
           <el-button plain class="btn">发送验证</el-button>
         </el-form-item>
-         <el-form-item>
+         <el-form-item prop="check" v-model="loginForm.check">
         <el-checkbox>我已阅读并同意用户协议和隐私条款</el-checkbox>
          </el-form-item>
          <el-form-item>
-        <el-button type="primary" class="enter">登录</el-button>
+        <el-button type="primary" class="enter" @click="submitLogin">登录</el-button>
          </el-form-item>
       </el-form>
     </el-card>
@@ -30,8 +30,32 @@ export default {
       loginForm: {
         mobile: '',
         code: '',
-        chek: false
+        check: false
+      },
+      loginRules: {
+        mobile: [{ required: true, message: '请输入您的手机号' }, {
+          pattern: /^1[3456789]\d{9}$/, message: '手机号格式不正确'
+        }],
+        code: [{ required: true, message: '请输入您的验证码' }, {
+          pattern: /^\d{6}$/, message: '验证码格式不正确'
+        }],
+        check: [{ validator: function (rule, value, callback) {
+          if (value) {
+            callback()
+          } else {
+            callback(new Error('没勾选'))
+          }
+        } }]
       }
+    }
+  },
+  methods: {
+    submitLogin () {
+      this.$refs.myForm.validate(function (isOk) {
+        if (isOk) {
+          console.log('121321113123')
+        }
+      })
     }
   }
 
