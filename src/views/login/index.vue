@@ -12,8 +12,8 @@
           <el-input class="code" v-model="loginForm.code"></el-input>
           <el-button plain class="btn">发送验证</el-button>
         </el-form-item>
-         <el-form-item prop="check" v-model="loginForm.check">
-        <el-checkbox>我已阅读并同意用户协议和隐私条款</el-checkbox>
+         <el-form-item prop="check" >
+        <el-checkbox v-model="loginForm.check">我已阅读并同意用户协议和隐私条款</el-checkbox>
          </el-form-item>
          <el-form-item>
         <el-button type="primary" class="enter" @click="submitLogin">登录</el-button>
@@ -53,7 +53,7 @@ export default {
     submitLogin () {
       this.$refs.myForm.validate(function (isOk) {
         if (isOk) {
-          console.log('121321113123')
+
         }
       })
     }
