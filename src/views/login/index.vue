@@ -51,9 +51,21 @@ export default {
   },
   methods: {
     submitLogin () {
-      this.$refs.myForm.validate(function (isOk) {
+      this.$refs.myForm.validate((isOk) => {
         if (isOk) {
-
+          this.$axios({
+            url: '/authorizations',
+            method: 'post',
+            data: this.loginForm
+          }).then(result => {
+            window.localStorage.setItem('user-token', result.data.data.tokenss)
+            this.$router.push('/home')
+          }).catch(() => {
+            this.$message({
+              message: '您的手机号或者验证码不正确',
+              type: 'warning'
+            })
+          })
         }
       })
     }

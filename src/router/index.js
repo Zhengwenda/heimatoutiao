@@ -2,7 +2,6 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import login from '../views/login'
 import home from '../views/home'
-// import lementui from 'element-ui'
 Vue.use(VueRouter)
 
 const routes = [
