@@ -1,19 +1,23 @@
 <template>
 <el-container>
-<el-aside>左</el-aside>
+<el-aside style="width:231px">
+  <layout-aside></layout-aside>
+</el-aside>
 <el-container>
-  <el-header>右</el-header>
-  <el-main>中</el-main>
+  <el-header>
+    <layout-header></layout-header>
+  </el-header>
+  <el-main></el-main>
 </el-container>
 </el-container>
 </template>
 
 <script>
-export default {
 
+export default {
 }
 </script>
 
-<style lang='less'>
+<style lang='less' scoped>
 
 </style>

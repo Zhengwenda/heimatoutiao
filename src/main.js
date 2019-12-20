@@ -5,11 +5,13 @@ import ElementUI from 'element-ui'
 import axios from 'axios'
 import 'element-ui/lib/theme-chalk/index.css'
 import '../src/styles/index.less'
+import components from './components'
 
 Vue.config.productionTip = false
 axios.defaults.baseURL = 'http://ttapi.research.itcast.cn/mp/v1_0'
 Vue.prototype.$axios = axios
 Vue.use(ElementUI)
+Vue.use(components)
 new Vue({
   router,
   render: h => h(App)
