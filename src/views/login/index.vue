@@ -81,6 +81,7 @@ export default {
       display: flex;
       justify-content: center;
       align-items: center;
+      background-size: cover;
     .box-card {
       height: 340px;
       width: 44 0px;
