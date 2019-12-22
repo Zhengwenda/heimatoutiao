@@ -1,6 +1,6 @@
 <template>
 <el-container>
-<el-aside style="width:230px;min-sheight:100vh;background-color:#323745;" >
+<el-aside style="width:230px;min-height:100vh;background-color:#323745;" >
   <layout-aside></layout-aside>
 </el-aside>
 <el-container>
@@ -8,7 +8,7 @@
     <layout-header></layout-header>
   </el-header>
   <el-main style="padding:0">
-    <router-view></router-view>
+   <router-view></router-view>
   </el-main>
 </el-container>
 </el-container>
