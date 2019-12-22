@@ -23,6 +23,7 @@ axios.interceptors.response.use(function (response) {
       message = '请求参数错误'
       break
     case 403:
+      window.localStorage.removeItem('user-token')
       router.push('/login')
       break
     case 507:
@@ -32,6 +33,7 @@ axios.interceptors.response.use(function (response) {
       message = '手机号不正确'
       break
     case 401:
+      window.localStorage.removeItem('user-token')
       router.push('/login')
       break
     default:
